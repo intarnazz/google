@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header" >
+        <nav class="nav">
+            <a href="https://mail.google.com" class="nav__linc">
+                Gmail
+            </a>
+            <a href="https://www.google.co.uk/imghp?hl=en" class="nav__linc">
+                Images
+            </a>
+            <!-- Function button -->
+            <button id="button-apps" class="nav__button-apps button"
+                onclick="googleApps(this)"
+                onmouseenter="googleAppsMouseOn(this)"
+                onmouseleave="googleAppsMouseOff(this)"
+                ><!-- End Function button -->
+                <svg class="nav__apps" focusable="false" viewBox="0 0 24 24">
+                    <path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z">
+                    </path>
+                </svg>
+            </button>
+            <img class="nav__avatar" src="img/avatar.jpg" alt="avatar">
+        </nav>
+        <div id="googeAppsTooltip" class="header__googe-apps-tooltip">
+            Google apps
+        </div>
+    </header>
+    <main class="main">
+        <div class="main__content">
+            <div id="logo" class="main__logo-conteiner">
+                <img class="main__logo" src="img/googlelogo_color_272x92dp.png" alt="Google">
+            </div>
+
+            <!-- search function -->
+            <div 
+                class="main__search search"
+                id="bgSearch"
+                onmouseenter="search_mouseOn()"
+                onmouseleave="search_mouseOff()"
+                ><!-- End search function -->
+
+                <img class="search__loupe" src="img/search/search.png" alt="search">
+                <input placeholder="Введиде поисковый запрос" name="none" id="search" class="search__input" autofocus>
+                <svg 
+                    onmouseenter="tooltiMicroOn()" 
+                    onmouseleave="tooltiMicroOff()" 
+                    class="search__micro" 
+                    viewBox="0 0 24 24"
+                >
+                    <path fill="#4285f4" d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z"></path>
+                    <path fill="#34a853" d="m11 18.08h2v3.92h-2z"></path>
+                    <path fill="#fbbc05" d="m7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45 0.56 2.42 1.47 3.38v0.32l-1.15 1.18z"></path>
+                    <path fill="#ea4335" d="m12 16.93a4.97 5.25 0 0 1 -3.54 -1.55l-1.41 1.49c1.26 1.34 3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z"></path>
+                </svg>    
+                <svg 
+                    onmouseenter="tooltiImageOn()" 
+                    onmouseleave="tooltiImageOff()" 
+                    class="search__image" 
+                    viewBox="0 0 192 192"
+                >
+                    <rect fill="none" height="192" width="192"></rect>
+                    <g>
+                        <circle fill="#34a853" cx="144.07" cy="144" r="16"></circle>
+                        <circle fill="#4285f4" cx="96.07" cy="104" r="24"></circle>
+                        <path fill="#ea4335" d="M24,135.2c0,18.11,14.69,32.8,32.8,32.8H96v-16l-40.1-0.1c-8.8,0-15.9-8.19-15.9-17.9v-18H24V135.2z"></path>
+                        <path fill="#fbbc05" d="M168,72.8c0-18.11-14.69-32.8-32.8-32.8H116l20,16c8.8,0,16,8.29,16,18v30h16V72.8z"></path>
+                        <path fill="#4285f4" d="M112,24l-32,0L68,40H56.8C38.69,40,24,54.69,24,72.8V92h16V74c0-9.71,7.2-18,16-18h80L112,24z"></path>
+                    </g>
+                </svg>
+            </div>
+            <div id="tooltips-sub-search" class="main__tooltips-sub-search tooltips">
+                <svg 
+                    id="tooltipsPointer" 
+                    class="tooltips__pointer" 
+                    viewBox="0 0 12 6" 
+                    fill="none">
+                    <path d="M6 0L11.1962 5.25H0.803848L6 0Z" fill="#2D2D2D"/>
+                </svg>
+                <span 
+                    id="tooltips-sub-search-voice" 
+                    class="tooltips__text tooltips__text_voice"
+                    >
+                    Search by voice
+                </span>
+                <span
+                    id="tooltips-sub-search-image" 
+                    class="tooltips__text tooltips__text_image"
+                >
+                    Search by image
+                </span>
+            </div>
+            <div class="main__sub-button sub-button">
+                <button onclick="goLink()" class="sub-button__button">
+                    Google Search
+                </button>
+                <a href="https://www.google.com/doodles" class="sub-button__button">
+                    I'm Feeling Lucky
+                </a>
+            </div>
+        </img>
+    </main>
+    <!------------------ popup ------------------>
+    <div id="popup" class="main__apps-menu popup">
+        <div class="popup__content">
+            <ul class="popup__content-bloc popup__content-bloc_top">
+                <li class="popup__content-line"> 
+                    <a href="https://myaccount.google.com/" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/avatar.png" alt="Account">
+                        </div>
+                        <div class="popup__icon-text">
+                            Account
+                        </div>
+                    </a>
+                    <a href="" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/google.png" alt="Search">
+                        </div>
+                        <div class="popup__icon-text">
+                            Search
+                        </div>
+                    </a>
+                    <a href="https://www.google.com/maps" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/mapss.png" alt="Maps">
+                        </div>
+                        <div class="popup__icon-text">
+                            Maps
+                        </div>
+                    </a>
+                </li>
+                <li class="popup__content-line">
+                    <a href="https://www.youtube.com" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/youtube.png" alt="YouTube">
+                        </div>
+                        <div class="popup__icon-text">
+                            YouTube
+                        </div>
+                    </a>
+                    <a href="https://play.google.com" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/play.png" alt="Play">
+                        </div>
+                        <div class="popup__icon-text">
+                            Play
+                        </div>
+                    </a>
+                    <a href="https://news.google.com" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/news.png" alt="News">
+                        </div>
+                        <div class="popup__icon-text">
+                            News
+                        </div>
+                    </a>
+                </li>
+                <li class="popup__content-line">
+                    <a href="https://mail.google.com" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/gmail.png" alt="Gmail">
+                        </div>
+                        <div class="popup__icon-text">
+                            Gmail
+                        </div>
+                    </a>
+                    <a href="https://meet.google.com" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/meat.png" alt="Meet">
+                        </div>
+                        <div class="popup__icon-text">
+                            Meet
+                        </div>
+                    </a>
+                    <a href="https://contacts.google.com" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/contact.png" alt="Contacts">
+                        </div>
+                        <div class="popup__icon-text">
+                            Contacts
+                        </div>
+                    </a>
+                </li>
+                <li class="popup__content-line">
+                    <a href="https://calendar.google.com" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/calendar.png" alt="Calendar">
+                        </div>
+                        <div class="popup__icon-text">
+                            Calendar
+                        </div>
+                    </a>
+                    <a href="https://translate.google.com" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/translater.png" alt="Translate">
+                        </div>
+                        <div class="popup__icon-text">
+                            Translate
+                        </div>
+                    </a>
+                    <a href="https://photos.google.com/" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/photos.png" alt="Photos">
+                        </div>
+                        <div class="popup__icon-text">
+                            Photos
+                        </div>
+                    </a>
+                </li>
+                <li class="popup__content-line">
+                    <a href="https://shopping.google.com/" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image " src="img/google-apps/Shoping.png" alt="Shopping">
+                        </div>
+                        <div class="popup__icon-text">
+                            Shopping
+                        </div>
+                    </a>
+                    <a href="https://mail.google.com/chat" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/chat.png" alt="Chat">
+                        </div>
+                        <div class="popup__icon-text">
+                            Chat
+                        </div>
+                    </a>
+                    <a href="https://www.google.com/business" class="popup__icon button" onmouseenter="mouseOn( // Function
+                            this, 'Business Profile Manager', 'business', 3
+                        )"
+                        onmouseleave="mouseOff(
+                            'Business ...', 'business'
+                        )">  <!-- End Function -->
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/Busenes.png" alt="Business">
+                        </div>
+                        <div id="business" class="popup__icon-text">
+                            Business ... 
+                        </div>
+                    </a>
+                </li>
+                <li class="popup__content-line">
+                    <a href="https://myadcenter.google.com/" class="popup__icon button" onmouseenter="mouseOn( // Function
+                    this, 'My Ad Center', 'MyAd', 2
+                )"
+                onmouseleave="mouseOff(
+                    'My Ad Ce...', 'MyAd'
+                )">  <!-- End Function -->
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image " src="img/google-apps/my-add-ce.png" alt="My Ad">
+                        </div>
+                        <div id="MyAd" class="popup__icon-text">
+                            My Ad Ce...
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="popup__content-bloc popup__content-bloc_bottom">
+                <li class="popup__content-line"> 
+                    <a href="https://docs.google.com/" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/docs.png" alt="Docs">
+                        </div>
+                        <div class="popup__icon-text">
+                            Docs
+                        </div>
+                    </a>
+                    <a href="https://docs.google.com/" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/sheets.png" alt="Sheets">
+                        </div>
+                        <div class="popup__icon-text">
+                            Sheets
+                        </div>
+                    </a>
+                    <a href="https://docs.google.com/" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/slides.png" alt="Slides">
+                        </div>
+                        <div class="popup__icon-text">
+                            Slides
+                        </div>
+                    </a>
+                </li>
+                <li class="popup__content-line"> 
+                    <a href="https://books.google.com/" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/books.png" alt="Books">
+                        </div>
+                        <div class="popup__icon-text">
+                            Books
+                        </div>
+                    </a>
+                    <a href="https://www.blogger.com/" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/bioger.png" alt="Bloger">
+                        </div>
+                        <div class="popup__icon-text">
+                            Blogger
+                        </div>
+                    </a>
+                    <a href="https://keep.google.com/" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/keeper.png" alt="Keep">
+                        </div>
+                        <div class="popup__icon-text">
+                            Keep
+                        </div>
+                    </a>
+                </li>
+                <li class="popup__content-line"> 
+                    <a href="https://jamboard.google.com/" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/jamboard.png" alt="Jamboard">
+                        </div>
+                        <div class="popup__icon-text">
+                            Jamboard
+                        </div>
+                    </a>
+                    <a href="https://classroom.google.com/" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/clasroom.png" alt="Classroom">
+                        </div>
+                        <div class="popup__icon-text">
+                            Classroom
+                        </div>
+                    </a>
+                    <a href="https://earth.google.com/" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/erth.png" alt="Earth">
+                        </div>
+                        <div class="popup__icon-text">
+                            Earth
+                        </div>
+                    </a>
+                </li>
+                <li class="popup__content-line"> 
+                    <a href="https://www.google.com/" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/saved.png" alt="Saved">
+                        </div>
+                        <div class="popup__icon-text">
+                            Saved
+                        </div>
+                    </a>
+                    <a href="https://artsandculture.google.com/" class="popup__icon button" onmouseenter="mouseOn( // Function
+                        this, 'Arts and Culture', 'arts', 2
+                    )"
+                    onmouseleave="mouseOff(
+                        'Arts and ...', 'arts'
+                    )">  <!-- End Function -->
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/arts.png" alt="Arts">
+                        </div>
+                        <div id="arts" class="popup__icon-text">
+                            Arts and ...
+                        </div>
+                    </a>
+                    <a href="https://ads.google.com/" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/google-ads.png" alt="Google ads">
+                        </div>
+                        <div class="popup__icon-text">
+                            Google ads
+                        </div>
+                    </a>
+                </li>
+                <li class="popup__content-line"> 
+                    <a href="https://one.google.com/" class="popup__icon button" onmouseenter="mouseOn( // Function
+                        this, 'Google One', 'GoogleOne', 2
+                    )"
+                    onmouseleave="mouseOff(
+                        'Google O...', 'GoogleOne'
+                    )">  <!-- End Function -->
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/google-one.png" alt=" Google O...">
+                        </div>
+                        <div id="GoogleOne" class="popup__icon-text">
+                            Google O...
+                        </div>
+                    </a>
+                    <a href="https://www.google.com/" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/travel.png" alt="Travel">
+                        </div>
+                        <div class="popup__icon-text">
+                            Travel
+                        </div>
+                    </a>
+                    <a href="https://docs.google.com/forms" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/forms.png" alt="Forms">
+                        </div>
+                        <div class="popup__icon-text">
+                            Forms
+                        </div>
+                    </a>
+                </li>
+                <li class="popup__content-line"> 
+                    <a href="https://www.google.com/finance" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/finanse.png" alt="Finanse">
+                        </div>
+                        <div class="popup__icon-text">
+                            Finanse
+                        </div>
+                    </a>
+                    <a href="https://drive.google.com/" class="popup__icon button">
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/drive.png" alt="Drive">
+                        </div>
+                        <div class="popup__icon-text">
+                            Drive
+                        </div>
+                    </a>
+                    <a href="https://chrome.google.com/webstore" class="popup__icon button" onmouseenter="mouseOn( // Function
+                        this, 'Chrome Web Store', 'Chrome', 2
+                    )"
+                    onmouseleave="mouseOff(
+                        'Chrome ...', 'Chrome'
+                    )">  <!-- End Function -->
+                        <div class="popup__image-container">
+                            <img class="popup__icon-image" src="img/google-apps/chrome.png" alt="Forms">
+                        </div>
+                        <div id="Chrome" class="popup__icon-text">
+                            Chrome ...
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <a href="https://about.google/products/" class="popup__button">
+                More from Google
+            </a>
+            <div class="popup__button-bottom-margin">
+                <br><br><br>
+            </div>
+        </div>
+    </div><!------------------ popup ------------------>
+    <footer class="footer">
+        <div class="footer__top">
+            Russia
+        </div>
+        <div class="footer__bottom">
+            <ul class="footer__items">
+                <li class="footer__item">
+                    <a href="https://about.google/" class="footer__linc">
+                        About
+                    </a>
+                </li>
+                <li class="footer__item">
+                    <a href="https://ads.google.com/" class="footer__linc">
+                        Advertising
+                    </a>
+                </li>
+                <li class="footer__item">
+                    <a href="https://www.google.co.uk/services" class="footer__linc">
+                        Business
+                    </a>
+                </li>
+                <li class="footer__item">
+                    <a href="https://www.google.com/search/howsearchworks" class="footer__linc">
+                        How Search works
+                    </a>
+                </li>
+            </ul>
+            <ul class="footer__items">
+                <li class="footer__item">
+                    <a href="https://policies.google.com/privacy" class="footer__linc">
+                        Privacy
+                    </a>
+                </li>
+                <li class="footer__item">
+                    <a href="https://policies.google.com/terms" class="footer__linc">
+                        Terms
+                    </a>
+                </li>
+                <li class="footer__item">
+                    <!-- function -->
+                    <button 
+                        id="settingsButton" 
+                        onclick="settingsButton_Onclick()" 
+                        class="footer__linc settings-button"
+                        ><!-- End function -->
+                        Settings
+                    </button>
+                </li>
+                <li id="footerItemPopup" class="footer__item_popup">
+                    <ul class="footer__popup">
+                        <li class="footer__popup-item">
+                            <a class="footer__popup-item-link" href="https://www.google.co.uk/preferences">
+                                Search settings
+                            </a>
+                        </li>
+                        <li class="footer__popup-item">
+                            <a class="footer__popup-item-link" href="https://www.google.co.uk/advanced_search">
+                                Advanced search
+                            </a>
+                        </li>
+                        <li class="footer__popup-item">
+                            <a class="footer__popup-item-link" href="https://myaccount.google.com/yourdata/search">
+                                Your data in Search
+                            </a>
+                        </li>
+                        <li class="footer__popup-item">
+                            <a class="footer__popup-item-link" href="https://myactivity.google.com/product/search">
+                                Search history
+                            </a>
+                        </li>
+                        <li class="footer__popup-item">
+                            <a class="footer__popup-item-link" href="https://support.google.com/websearch">
+                                Search help
+                            </a>
+                        </li>
+                        <li class="footer__popup-item">
+                            <a class="footer__popup-item-link" href="">
+                                Send feedback
+                            </a>
+                        </li>
+                        <li class="footer__popup-item_button">
+                            <div id="DarkTheme" class="footer__popup-button-box ">
+                                <button id="DarkTextContent" class="footer__popup-button">
+                                    Dark theme: Off
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
